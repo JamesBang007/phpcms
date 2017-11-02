@@ -5,4 +5,4 @@ CREATE TABLE IF NOT EXISTS `phpcms_video_content` (
   `videoid` int(10) unsigned NOT NULL DEFAULT '0',
   `listorder` smallint(5) unsigned NOT NULL DEFAULT '0',
   KEY `videoid` (`videoid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

@@ -5,4 +5,4 @@ CREATE TABLE IF NOT EXISTS `phpcms_form_table` (
   `datetime` int(10) unsigned NOT NULL,
   `ip` char(15) NOT NULL,
   PRIMARY KEY (`dataid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

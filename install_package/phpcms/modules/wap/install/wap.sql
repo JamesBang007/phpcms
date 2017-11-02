@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_wap` (
   `setting` mediumtext,
   `status` tinyint(2) DEFAULT NULL,
   PRIMARY KEY (`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `phpcms_wap_type`;
 CREATE TABLE IF NOT EXISTS `phpcms_wap_type` (
@@ -18,6 +18,6 @@ CREATE TABLE IF NOT EXISTS `phpcms_wap_type` (
   `siteid` smallint(5) NOT NULL,
   `listorder` smallint(5) DEFAULT '0',
   PRIMARY KEY (`typeid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO `phpcms_wap` (`siteid`, `sitename`, `logo`, `domain`, `setting`, `status`) VALUES(1, 'PHPCMS手机门户', '/statics/images/wap/wlogo.gif', '', 'array (\n  ''listnum'' => ''10'',\n  ''thumb_w'' => ''220'',\n  ''thumb_h'' => ''0'',\n  ''c_num'' => ''1000'',\n  ''index_template'' => ''index'',\n  ''category_template'' => ''category'',\n  ''list_template'' => ''list'',\n  ''show_template'' => ''show'',\n)', 0);

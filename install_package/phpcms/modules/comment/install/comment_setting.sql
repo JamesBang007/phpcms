@@ -7,5 +7,5 @@ CREATE TABLE IF NOT EXISTS `phpcms_comment_setting` (
   `add_point`  tinyint(3) UNSIGNED NULL DEFAULT 0 COMMENT '添加的积分数' ,
   `del_point`  tinyint(3) UNSIGNED NULL DEFAULT 0 COMMENT '扣除的积分数' ,
   PRIMARY KEY  (`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 INSERT INTO `phpcms_comment_setting` (`siteid`, `guest`, `check`, `code`, `add_point`, `del_point`) VALUES (1, 0, 0, 0, 0, 0);

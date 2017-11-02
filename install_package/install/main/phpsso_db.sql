@@ -28,7 +28,7 @@ CREATE TABLE `ps_admin` (
   `ip` char(15) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `username` (`username`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `ps_applications`
@@ -46,7 +46,7 @@ CREATE TABLE `ps_applications` (
   `synlogin` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`appid`),
   KEY `synlogin` (`synlogin`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `ps_members`
@@ -70,7 +70,7 @@ CREATE TABLE `ps_members` (
   UNIQUE KEY `username` (`username`),
   KEY `email` (`email`),
   KEY `ucuserid` (`ucuserid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `ps_messagequeue`
@@ -87,7 +87,7 @@ CREATE TABLE `ps_messagequeue` (
   PRIMARY KEY  (`id`),
   KEY `dateline` (`dateline`),
   KEY `succeed` (`succeed`,`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `ps_session`
@@ -116,7 +116,7 @@ CREATE TABLE `ps_settings` (
   `name` varchar(32) NOT NULL default '',
   `data` text NOT NULL,
   PRIMARY KEY  (`name`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO `ps_settings` VALUES ('denyemail', '');
 INSERT INTO `ps_settings` VALUES ('denyusername', '');

@@ -16,4 +16,4 @@ CREATE TABLE IF NOT EXISTS `phpcms_video_store` (
   `channelid` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`videoid`),
   KEY `videoid` (`videoid`,`status`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;

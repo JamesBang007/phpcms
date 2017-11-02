@@ -17,7 +17,7 @@ CREATE TABLE `phpcms_admin` (
   `lang` VARCHAR(6) NOT NULL,
   PRIMARY KEY (`userid`),
   KEY `username` (`username`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_admin_panel`
@@ -30,7 +30,7 @@ CREATE TABLE `phpcms_admin_panel` (
   `url` char(255) DEFAULT NULL,
   `datetime` int(10) unsigned DEFAULT '0',
   UNIQUE KEY `userid` (`menuid`,`userid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_admin_role`
@@ -45,7 +45,7 @@ CREATE TABLE `phpcms_admin_role` (
   PRIMARY KEY (`roleid`),
   KEY `listorder` (`listorder`),
   KEY `disabled` (`disabled`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_admin_role_priv`
@@ -59,7 +59,7 @@ CREATE TABLE `phpcms_admin_role_priv` (
   `data` char(30) NOT NULL DEFAULT '',
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   KEY `roleid` (`roleid`,`m`,`c`,`a`,`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_attachment`
@@ -84,7 +84,7 @@ CREATE TABLE `phpcms_attachment` (
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`aid`),
   KEY `authcode` (`authcode`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_attachment_index`
@@ -95,7 +95,7 @@ CREATE TABLE `phpcms_attachment_index` (
   `aid` char(10) NOT NULL,
   KEY `keyid` (`keyid`),
   KEY `aid` (`aid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 -- ----------------------------
 -- Table structure for `phpcms_badword`
 -- ----------------------------
@@ -111,7 +111,7 @@ CREATE TABLE `phpcms_badword` (
   UNIQUE KEY `badword` (`badword`),
   KEY `usetimes` (`replaceword`,`listorder`),
   KEY `hits` (`listorder`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;
 
 -- ----------------------------
 -- Table structure for `phpcms_block`
@@ -129,7 +129,7 @@ CREATE TABLE `phpcms_block` (
   KEY `pos` (`pos`),
   KEY `type` (`type`),
   KEY `siteid` (`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_block_history`
@@ -143,7 +143,7 @@ CREATE TABLE `phpcms_block_history` (
   `userid` mediumint(8) unsigned DEFAULT '0',
   `username` char(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_block_priv`
@@ -157,7 +157,7 @@ CREATE TABLE `phpcms_block_priv` (
   PRIMARY KEY (`id`),
   KEY `blockid` (`blockid`),
   KEY `roleid` (`roleid`,`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_cache`
@@ -168,7 +168,7 @@ CREATE TABLE `phpcms_cache` (
   `path` char(50) NOT NULL,
   `data` mediumtext NOT NULL,
   PRIMARY KEY  (`filename`,`path`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_category`
@@ -202,7 +202,7 @@ CREATE TABLE `phpcms_category` (
   PRIMARY KEY (`catid`),
   KEY `module` (`module`,`parentid`,`listorder`,`catid`),
   KEY `siteid` (`siteid`,`type`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;
 
 -- ----------------------------
 -- Table structure for `phpcms_category_priv`
@@ -216,7 +216,7 @@ CREATE TABLE `phpcms_category_priv` (
   `action` char(30) NOT NULL,
   KEY `catid` (`catid`,`roleid`,`is_admin`,`action`),
   KEY `siteid` (`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_collection_content`
@@ -233,7 +233,7 @@ CREATE TABLE `phpcms_collection_content` (
   PRIMARY KEY (`id`),
   KEY `nodeid` (`nodeid`,`siteid`),
   KEY `status` (`status`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_collection_history`
@@ -243,7 +243,7 @@ CREATE TABLE `phpcms_collection_history` (
   `md5` char(32) NOT NULL,
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`md5`,`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_collection_node`
@@ -286,7 +286,7 @@ CREATE TABLE `phpcms_collection_node` (
   `customize_config` text NOT NULL,
   PRIMARY KEY (`nodeid`),
   KEY `siteid` (`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_collection_program`
@@ -302,7 +302,7 @@ CREATE TABLE `phpcms_collection_program` (
   PRIMARY KEY (`id`),
   KEY `siteid` (`siteid`),
   KEY `nodeid` (`nodeid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `phpcms_content_check`;
 CREATE TABLE `phpcms_content_check` (
@@ -316,7 +316,7 @@ CREATE TABLE `phpcms_content_check` (
   KEY `username` (`username`),
   KEY `checkid` (`checkid`),
   KEY `status` (`status`,`inputtime`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_datacall`
@@ -335,7 +335,7 @@ CREATE TABLE `phpcms_datacall` (
   `num` smallint(6) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `type` (`type`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_dbsource`
@@ -354,7 +354,7 @@ CREATE TABLE `phpcms_dbsource` (
   `charset` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `siteid` (`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_downservers`
@@ -367,7 +367,7 @@ CREATE TABLE `phpcms_downservers` (
   `listorder` smallint(5) unsigned NOT NULL DEFAULT '0',
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_favorite`
@@ -381,7 +381,7 @@ CREATE TABLE `phpcms_favorite` (
   `adddate` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_hits`
@@ -397,7 +397,7 @@ CREATE TABLE `phpcms_hits` (
   `monthviews` int(10) unsigned NOT NULL DEFAULT '0',
   `updatetime` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`hitsid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_ipbanned`
@@ -408,7 +408,7 @@ CREATE TABLE `phpcms_ipbanned` (
   `ip` char(15) NOT NULL,
   `expires` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`ipbannedid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_keylink`
@@ -419,7 +419,7 @@ CREATE TABLE `phpcms_keylink` (
   `word` char(40) NOT NULL,
   `url` char(100) NOT NULL,
   PRIMARY KEY  (`keylinkid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 -- ----------------------------
@@ -435,7 +435,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_keyword` (
   `searchnums` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `keyword` (`keyword`,`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 -- ----------------------------
@@ -449,7 +449,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_keyword_data` (
   `contentid` char(30) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `tagid` (`tagid`,`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_linkage`
@@ -469,7 +469,7 @@ CREATE TABLE `phpcms_linkage` (
   `siteid` smallint(5) NOT NULL default '0',
   PRIMARY KEY  (`linkageid`,`keyid`),
   KEY `parentid` (`parentid`,`listorder`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_log`
@@ -487,11 +487,11 @@ CREATE TABLE `phpcms_log` (
   `userid` mediumint(8) unsigned NOT NULL default '0',
   `username` varchar(20) NOT NULL,
   `ip` varchar(15) NOT NULL,
-  `time` datetime NOT NULL default '0000-00-00 00:00:00',
+  `time` datetime NOT NULL default '1000-01-01 00:00:00',
   PRIMARY KEY  (`logid`),
   KEY `module` (`module`,`file`,`action`),
   KEY `username` (`username`,`action`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_member`
@@ -527,7 +527,7 @@ CREATE TABLE `phpcms_member` (
   UNIQUE KEY `username` (`username`),
   KEY `email` (`email`(20)),
   KEY `phpssouid` (`phpssouid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 
@@ -539,7 +539,7 @@ CREATE TABLE `phpcms_member_detail` (
   `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `birthday` date DEFAULT NULL,
   UNIQUE KEY `userid` (`userid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_member_group`
@@ -571,7 +571,7 @@ CREATE TABLE `phpcms_member_group` (
   PRIMARY KEY  (`groupid`),
   KEY `disabled` (`disabled`),
   KEY `listorder` (`sort`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 -- ----------------------------
@@ -598,7 +598,7 @@ CREATE TABLE `phpcms_member_verify` (
   PRIMARY KEY  (`userid`),
   UNIQUE KEY `username` (`username`),
   KEY `email` (`email`(20))
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_member_menu`
@@ -620,7 +620,7 @@ CREATE TABLE `phpcms_member_menu` (
   KEY `listorder` (`listorder`),
   KEY `parentid` (`parentid`),
   KEY `module` (`m`,`c`,`a`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_member_vip`
@@ -629,7 +629,7 @@ DROP TABLE IF EXISTS `phpcms_member_vip`;
 CREATE TABLE `phpcms_member_vip` (
   `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   UNIQUE KEY `userid` (`userid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_menu`
@@ -654,7 +654,7 @@ CREATE TABLE `phpcms_menu` (
   KEY `listorder` (`listorder`),
   KEY `parentid` (`parentid`),
   KEY `module` (`m`,`c`,`a`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 --
 -- 表的结构 `phpcms_model`
@@ -684,7 +684,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_model` (
   `type` tinyint(1) NOT NULL,
   PRIMARY KEY (`modelid`),
   KEY `type` (`type`,`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `phpcms_model_field`;
 CREATE TABLE IF NOT EXISTS `phpcms_model_field` (
@@ -718,7 +718,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_model_field` (
   PRIMARY KEY (`fieldid`),
   KEY `modelid` (`modelid`,`disabled`),
   KEY `field` (`field`,`modelid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_module`
@@ -734,10 +734,10 @@ CREATE TABLE `phpcms_module` (
   `setting` mediumtext NOT NULL,
   `listorder` tinyint(3) unsigned NOT NULL default '0',
   `disabled` tinyint(1) unsigned NOT NULL default '0',
-  `installdate` date NOT NULL default '0000-00-00',
-  `updatedate` date NOT NULL default '0000-00-00',
+  `installdate` date NOT NULL default '1000-01-01',
+  `updatedate` date NOT NULL default '1000-01-01',
   PRIMARY KEY  (`module`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 
@@ -754,7 +754,7 @@ CREATE TABLE `phpcms_page` (
   `template` varchar(30) NOT NULL,
   `updatetime` int(10) unsigned NOT NULL DEFAULT '0',
   KEY `catid` (`catid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_pay_account`
@@ -785,7 +785,7 @@ CREATE TABLE `phpcms_pay_account` (
   KEY `status` (`status`),
   KEY `userid` (`userid`),
   KEY `trade_sn` (`trade_sn`,`money`,`status`,`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_pay_payment`
@@ -809,7 +809,7 @@ CREATE TABLE `phpcms_pay_payment` (
   `version` varchar(20) NOT NULL,
   PRIMARY KEY  (`pay_id`),
   KEY `pay_code` (`pay_code`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_pay_spend`
@@ -831,7 +831,7 @@ CREATE TABLE `phpcms_pay_spend` (
   KEY `creat_at` (`creat_at`),
   KEY `logo` (`logo`),
   KEY `userid` (`userid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_position`
@@ -848,7 +848,7 @@ CREATE TABLE `phpcms_position` (
   `siteid` smallint(5) unsigned NOT NULL DEFAULT '0',
   `thumb` varchar(150) NOT NULL DEFAULT '',
   PRIMARY KEY (`posid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 INSERT INTO `phpcms_position` (`posid`, `modelid`, `catid`, `name`, `maxnum`, `listorder`, `siteid`) VALUES(1, 0, 0, '首页焦点图推荐', 20, 1, 1);
@@ -885,7 +885,7 @@ CREATE TABLE `phpcms_position_data` (
   `synedit` tinyint(1) DEFAULT '0',
   KEY `posid` (`posid`),
   KEY `listorder` (`listorder`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 -- ----------------------------
@@ -905,7 +905,7 @@ CREATE TABLE `phpcms_queue` (
   PRIMARY KEY (`id`),
   KEY `siteid` (`siteid`),
   KEY `times` (`times`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_release_point`
@@ -922,7 +922,7 @@ CREATE TABLE `phpcms_release_point` (
   `ssl` tinyint(1) default '0',
   `path` varchar(50) default NULL,
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_search`
@@ -939,7 +939,7 @@ CREATE TABLE `phpcms_search` (
   KEY `typeid` (`typeid`,`id`),
   KEY `siteid` (`siteid`),
   FULLTEXT KEY `data` (`data`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_search_keyword`
@@ -953,7 +953,7 @@ CREATE TABLE `phpcms_search_keyword` (
   UNIQUE KEY `keyword` (`keyword`),
   UNIQUE KEY `pinyin` (`pinyin`),
   FULLTEXT KEY `data` (`data`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_session`
@@ -972,7 +972,7 @@ CREATE TABLE `phpcms_session` (
   `data` char(255) NOT NULL,
   PRIMARY KEY  (`sessionid`),
   KEY `lastvisit` (`lastvisit`)
-) TYPE=MEMORY;
+) ENGINE=MEMORY;
 
 -- ----------------------------
 -- Table structure for `phpcms_site`
@@ -992,7 +992,7 @@ CREATE TABLE `phpcms_site` (
   `setting` mediumtext,
   `uuid` char(40) DEFAULT '',
   PRIMARY KEY (`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_special`
@@ -1027,7 +1027,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_special` (
   `isvideo` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `disabled` (`disabled`,`siteid`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;
 
 -- ----------------------------
 -- Table structure for `phpcms_special_c_data`
@@ -1042,7 +1042,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_special_c_data` (
   `style` char(20) NOT NULL,
   `show_template` varchar(30) NOT NULL,
   UNIQUE KEY `id` (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_special_content`
@@ -1071,7 +1071,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_special_content` (
   PRIMARY KEY (`id`),
   KEY `specialid` (`specialid`,`typeid`,`isdata`),
   KEY `typeid` (`typeid`,`isdata`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;
 
 -- ----------------------------
 -- Table structure for `phpcms_sphinx_counter`
@@ -1081,7 +1081,7 @@ CREATE TABLE `phpcms_sphinx_counter` (
   `counter_id` int(11) unsigned NOT NULL,
   `max_doc_id` int(11) unsigned NOT NULL,
   PRIMARY KEY  (`counter_id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_template_bak`
@@ -1096,7 +1096,7 @@ CREATE TABLE `phpcms_template_bak` (
   `template` text,
   PRIMARY KEY (`id`),
   KEY `fileid` (`fileid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 
@@ -1111,7 +1111,7 @@ CREATE TABLE `phpcms_times` (
   `isadmin` tinyint(1) NOT NULL default '0',
   `times` tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (`username`,`isadmin`)
-) TYPE=MEMORY;
+) ENGINE=MEMORY;
 
 -- ----------------------------
 -- Table structure for `phpcms_type`
@@ -1131,7 +1131,7 @@ CREATE TABLE `phpcms_type` (
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`typeid`),
   KEY `module` (`module`,`parentid`,`siteid`,`listorder`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_urlrule`
@@ -1145,7 +1145,7 @@ CREATE TABLE `phpcms_urlrule` (
   `urlrule` varchar(255) NOT NULL,
   `example` varchar(255) NOT NULL,
   PRIMARY KEY  (`urlruleid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- ----------------------------
 -- Table structure for `phpcms_workflow`
@@ -1160,7 +1160,7 @@ CREATE TABLE `phpcms_workflow` (
   `setting` text NOT NULL,
   `flag` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`workflowid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO `phpcms_workflow` (`workflowid`, `siteid`, `steps`, `workname`, `description`, `setting`) VALUES(1, 1, 1, '一级审核', '审核一次', '');
 INSERT INTO `phpcms_workflow` (`workflowid`, `siteid`, `steps`, `workname`, `description`, `setting`) VALUES(2, 1, 2, '二级审核', '审核两次', '');
@@ -1176,7 +1176,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_copyfrom` (
   `thumb` varchar(100) NOT NULL,
   `listorder` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `phpcms_download`;
 CREATE TABLE IF NOT EXISTS `phpcms_download` (
@@ -1208,7 +1208,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_download` (
   KEY `status` (`status`,`listorder`,`id`),
   KEY `listorder` (`catid`,`status`,`listorder`,`id`),
   KEY `catid` (`catid`,`status`,`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 --
 -- 转存表中的数据 `phpcms_download`
@@ -1236,7 +1236,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_download_data` (
   `downfiles` mediumtext NOT NULL,
   `downfile` varchar(255) NOT NULL DEFAULT '',
   KEY `id` (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 --
 -- 转存表中的数据 `phpcms_download_data`
@@ -1272,7 +1272,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_news` (
   KEY `status` (`status`,`listorder`,`id`),
   KEY `listorder` (`catid`,`status`,`listorder`,`id`),
   KEY `catid` (`catid`,`status`,`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 --
 -- 转存表中的数据 `phpcms_news`
@@ -1300,7 +1300,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_news_data` (
   `allow_comment` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `copyfrom` varchar(100) NOT NULL DEFAULT '',
   KEY `id` (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 --
 -- 转存表中的数据 `phpcms_news_data`
@@ -1336,7 +1336,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_picture` (
   KEY `status` (`status`,`listorder`,`id`),
   KEY `listorder` (`catid`,`status`,`listorder`,`id`),
   KEY `catid` (`catid`,`status`,`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 --
 -- 转存表中的数据 `phpcms_picture`
@@ -1364,7 +1364,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_picture_data` (
   `copyfrom` varchar(255) NOT NULL DEFAULT '',
   `allow_comment` tinyint(1) unsigned NOT NULL DEFAULT '1',
   KEY `id` (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- --------------------------------------------------------
 
@@ -1397,7 +1397,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_video` (
   KEY `status` (`status`,`listorder`,`id`),
   KEY `listorder` (`catid`,`status`,`listorder`,`id`),
   KEY `catid` (`catid`,`status`,`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 -- --------------------------------------------------------
@@ -1420,7 +1420,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_video_data` (
   `relation` varchar(255) NOT NULL DEFAULT '',
   `video` tinyint(3) unsigned NOT NULL DEFAULT '0',
   KEY `id` (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- --------------------------------------------------------
 
@@ -1436,7 +1436,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_extend_setting` (
   `data` mediumtext,
   PRIMARY KEY (`id`),
   KEY `key` (`key`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 -- ----------------------------
@@ -5230,7 +5230,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_video_content` (
   `videoid` int(10) unsigned NOT NULL DEFAULT '0',
   `listorder` smallint(5) unsigned NOT NULL DEFAULT '0',
   KEY `videoid` (`videoid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `phpcms_video_store`;
 CREATE TABLE IF NOT EXISTS `phpcms_video_store` (
@@ -5250,7 +5250,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_video_store` (
   `channelid` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`videoid`),
   KEY `videoid` (`videoid`,`status`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO `v9_menu` (`id`, `name`, `parentid`, `m`, `c`, `a`, `data`, `listorder`, `display`, `project1`, `project2`, `project3`, `project4`, `project5`) VALUES
 (9, 'video', 0, 'video', 'video', 'init', '', 11, '1', 1, 1, 1, 1, 1),

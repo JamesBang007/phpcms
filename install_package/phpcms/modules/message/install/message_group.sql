@@ -8,4 +8,4 @@ CREATE TABLE `phpcms_message_group` (
   `inputtime` int(10) unsigned DEFAULT '0',
   `status` tinyint(2) unsigned DEFAULT '1',
   PRIMARY KEY (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

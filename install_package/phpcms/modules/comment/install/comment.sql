@@ -14,4 +14,4 @@ CREATE TABLE IF NOT EXISTS `phpcms_comment` (
   PRIMARY KEY (`commentid`),
   KEY `lastupdate` (`lastupdate`),
   KEY `siteid` (`siteid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

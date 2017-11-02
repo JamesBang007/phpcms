@@ -7,8 +7,8 @@ CREATE TABLE `phpcms_vote_subject` (
   `ischeckbox` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `credit` smallint(5) unsigned NOT NULL DEFAULT '0',
   `addtime` int(10) unsigned NOT NULL DEFAULT '0',
-  `fromdate` date NOT NULL DEFAULT '0000-00-00',
-  `todate` date NOT NULL DEFAULT '0000-00-00',
+  `fromdate` date NOT NULL DEFAULT '1000-01-01',
+  `todate` date NOT NULL DEFAULT '1000-01-01',
   `interval` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `enabled` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `template` char(20) NOT NULL,
@@ -24,4 +24,4 @@ CREATE TABLE `phpcms_vote_subject` (
   KEY `enabled` (`enabled`),
   KEY `fromdate` (`fromdate`,`todate`),
   KEY `todate` (`todate`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

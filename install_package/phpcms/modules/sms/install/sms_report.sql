@@ -11,4 +11,4 @@ CREATE TABLE `phpcms_sms_report` (
   `ip` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `mobile` (`mobile`,`posttime`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

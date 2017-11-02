@@ -5,4 +5,4 @@ CREATE TABLE `phpcms_message_data` (
   `group_message_id` int(5) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `message` (`userid`,`group_message_id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

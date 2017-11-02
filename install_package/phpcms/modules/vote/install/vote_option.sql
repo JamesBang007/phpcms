@@ -8,4 +8,4 @@ CREATE TABLE `phpcms_vote_option` (
   `listorder` tinyint(2) unsigned DEFAULT '0',
   PRIMARY KEY (`optionid`),
   KEY `subjectid` (`subjectid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

@@ -21,7 +21,7 @@ CREATE TABLE `$basic_table` (
   KEY `status` (`status`,`listorder`,`id`),
   KEY `listorder` (`catid`,`status`,`listorder`,`id`),
   KEY `catid` (`catid`,`status`,`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 -- 从表
 CREATE TABLE `$table_data` (
@@ -36,7 +36,7 @@ CREATE TABLE `$table_data` (
   `allow_comment` tinyint(1) unsigned NOT NULL default '1',
   `relation` varchar(255) NOT NULL default '',
   KEY `id` (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 INSERT INTO `$table_model_field` (`modelid`, `siteid`, `field`, `name`, `tips`, `css`, `minlength`, `maxlength`, `pattern`, `errortips`, `formtype`, `setting`, `formattribute`, `unsetgroupids`, `unsetroleids`, `iscore`, `issystem`, `isunique`, `isbase`, `issearch`, `isadd`, `isfulltext`, `isposition`, `listorder`, `disabled`, `isomnipotent`) VALUES($modelid, $siteid, 'catid', '栏目', '', '', 1, 6, '/^[0-9]{1,6}$/', '请选择栏目', 'catid', 'array (\n  ''defaultvalue'' => '''',\n)', '', '-99', '-99', 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0);

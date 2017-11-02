@@ -20,4 +20,4 @@ CREATE TABLE IF NOT EXISTS `phpcms_mood` (
   KEY `total` (`total`),
   KEY `lastupdate` (`lastupdate`),
   KEY `catid` (`catid`,`siteid`,`contentid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

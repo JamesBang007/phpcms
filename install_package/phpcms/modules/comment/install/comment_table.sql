@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS `phpcms_comment_table` (
   `total` int(10) unsigned default '0' COMMENT '数据总量',
   `creat_at` int(10) default '0' COMMENT '创建时间',
   PRIMARY KEY  (`tableid`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 INSERT INTO `phpcms_comment_table` (`tableid`, `total`, `creat_at`) VALUES (1, 0, 0);

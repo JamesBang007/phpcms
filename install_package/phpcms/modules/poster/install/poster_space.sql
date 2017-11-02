@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `phpcms_poster_space` (
   `disabled` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`spaceid`),
   KEY `disabled` (`disabled`,`siteid`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;
 
 INSERT INTO `phpcms_poster_space` (`siteid`, `spaceid`, `name`, `type`, `path`, `width`, `height`, `setting`, `description`, `items`, `disabled`) VALUES
 (1, 1, '顶部搜索右侧广告位', 'banner', 'poster_js/1.js', 430, 63, 'array (\n  ''paddleft'' => '''',\n  ''paddtop'' => '''',\n)', '', 1, 0);

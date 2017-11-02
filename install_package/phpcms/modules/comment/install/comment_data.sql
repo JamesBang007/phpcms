@@ -17,4 +17,4 @@ CREATE TABLE IF NOT EXISTS `phpcms_comment_data_1` (
   KEY `direction` (`direction`),
   KEY `siteid` (`siteid`),
   KEY `support` (`support`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

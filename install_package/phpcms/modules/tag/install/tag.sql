@@ -13,4 +13,4 @@ CREATE TABLE IF NOT EXISTS `phpcms_tag` (
   `cache` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `num` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;

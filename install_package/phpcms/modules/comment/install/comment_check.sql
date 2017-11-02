@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS `phpcms_comment_check` (
   PRIMARY KEY  (`id`),
   KEY `siteid` (`siteid`),
   KEY `comment_data_id` (`comment_data_id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;

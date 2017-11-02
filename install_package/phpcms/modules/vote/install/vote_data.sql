@@ -10,4 +10,4 @@ CREATE TABLE `phpcms_vote_data` (
   KEY `subjectid` (`subjectid`),
   KEY `userid` (`userid`),
   KEY `ip` (`ip`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
