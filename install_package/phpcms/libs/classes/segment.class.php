@@ -335,7 +335,8 @@ class segment {
     else $this->split_result($str,true,true);
     $okstr = $this->result_string;
     $ws = explode(' ',$okstr);
-    $okstr = $wks = '';
+    $okstr = '';
+    $wks = array();
     foreach($ws as $w) {
       $w = trim($w);
       if(strlen($w)<2) continue;

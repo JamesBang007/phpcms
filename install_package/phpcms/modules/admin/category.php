@@ -348,7 +348,7 @@ class category extends admin {
 		if (empty($catid)) return false;
 		$r = $this->db->get_one(array('parentid'=>$catid));
 		if($r) {
-			$this->delete_child($r['catid']);
+			$this->delete_child($r['catid'], $r['modelid']);
 			$this->db->delete(array('catid'=>$r['catid']));
 			if ($modelid != 0) {
 				$this->delete_category_video($r['catid'], $modelid);
