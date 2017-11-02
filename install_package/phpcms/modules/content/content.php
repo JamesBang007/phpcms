@@ -130,7 +130,7 @@ class content extends admin {
 				//如果该栏目设置了工作流，那么必须走工作流设定
 				$setting = string2array($category['setting']);
 				$workflowid = $setting['workflowid'];
-				if($workflowid && $_POST['status']!=99) {
+				if($workflowid) {
 					//如果用户是超级管理员，那么则根据自己的设置来发布
 					$_POST['info']['status'] = $_SESSION['roleid']==1 ? intval($_POST['status']) : 1;
 				} else {
