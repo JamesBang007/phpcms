@@ -106,7 +106,7 @@ CREATE TABLE `ps_session` (
   `data` char(255) NOT NULL,
   PRIMARY KEY  (`sessionid`),
   KEY `lastvisit` (`lastvisit`)
-) TYPE=MEMORY;
+) ENGINE=MEMORY;
 
 -- ----------------------------
 -- Table structure for `ps_settings`
