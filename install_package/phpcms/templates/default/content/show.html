@@ -7,7 +7,7 @@
 <span>{$inputtime}&nbsp;&nbsp;&nbsp;来源：{$copyfrom}&nbsp;&nbsp;&nbsp;评论：<a href="#comment_iframe" id="comment">0</a> 点击：</span><span id="hits"></span></h1>
 			{if $description}<div class="summary" >{$description}</div>{/if}
 			<div class="content">
-			{if $allow_visitor==1}
+			{if $allow_visitor=='1'}
 				{$content}
 				<!--内容关联投票-->
 				{if $voteid}<script language="javascript" src="{APP_PATH}index.php?m=vote&c=index&a=show&action=js&subjectid={$voteid}&type=2"></script>{/if}
