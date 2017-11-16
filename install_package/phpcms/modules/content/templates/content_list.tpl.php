@@ -90,11 +90,12 @@ include $this->admin_tpl('header','admin');?>
         <td align='center'><input name='listorders[<?php echo $r['id'];?>]' type='text' size='3' value='<?php echo $r['listorder'];?>' class='input-text-c'></td>
 		<td align='center' ><?php echo $r['id'];?></td>
 		<td>
+                    [<?php echo $this->categorys[$r[catid]][catname]?>]
 		<?php
 		if($status==99) {
 			if($r['islink']) {
 				echo '<a href="'.$r['url'].'" target="_blank">';
-			} elseif(strpos($r['url'],'http://')!==false) {
+			} elseif(strpos($r['url'],'http://')!==false || strpos($r['url'], 'https://') !== false) {
 				echo '<a href="'.$r['url'].'" target="_blank">';
 			} else {
 				echo '<a href="'.$release_siteurl.$r['url'].'" target="_blank">';

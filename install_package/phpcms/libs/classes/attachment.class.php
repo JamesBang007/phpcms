@@ -283,7 +283,7 @@ class attachment {
 	function fillurl($surl, $absurl, $basehref = '') {
 		if($basehref != '') {
 			$preurl = strtolower(substr($surl,0,6));
-			if($preurl=='http://' || $preurl=='ftp://' ||$preurl=='mms://' || $preurl=='rtsp://' || $preurl=='thunde' || $preurl=='emule://'|| $preurl=='ed2k://')
+			if($preurl=='http:/' || $preurl=='ftp://' ||$preurl=='mms://' || $preurl=='rtsp:/' || $preurl=='thunde' || $preurl=='emule:'|| $preurl=='ed2k:/')
 			return  $surl;
 			else
 			return $basehref.'/'.$surl;
@@ -303,11 +303,11 @@ class attachment {
 		$pos = strpos($surl,'#');
 		if($pos>0) $surl = substr($surl,0,$pos);
 		if($surl[0]=='/') {
-			$okurl = 'http://'.$HomeUrl.'/'.$surl;
+			$okurl = SITE_PROTOCOL.$HomeUrl.'/'.$surl;
 		} elseif($surl[0] == '.') {
 			if(strlen($surl)<=2) return '';
-			elseif($surl[0]=='/') {
-				$okurl = 'http://'.$BaseUrlPath.'/'.substr($surl,2,strlen($surl)-2);
+			elseif($surl[1]=='/') {
+				$okurl = SITE_PROTOCOL.$BaseUrlPath.'/'.substr($surl,2);
 			} else {
 				$urls = explode('/',$surl);
 				foreach($urls as $u) {
@@ -320,7 +320,7 @@ class attachment {
 				if(count($urls) <= $pathStep)
 				return '';
 				else {
-					$pstr = 'http://';
+					$pstr = SITE_PROTOCOL;
 					for($i=0;$i<count($urls)-$pathStep;$i++) {
 						$pstr .= $urls[$i].'/';
 					}
@@ -330,19 +330,19 @@ class attachment {
 		} else {
 			$preurl = strtolower(substr($surl,0,6));
 			if(strlen($surl)<7)
-			$okurl = 'http://'.$BaseUrlPath.'/'.$surl;
-			elseif($preurl=="http:/"||$preurl=='ftp://' ||$preurl=='mms://' || $preurl=="rtsp://" || $preurl=='thunde' || $preurl=='emule:'|| $preurl=='ed2k:/')
+			$okurl = SITE_PROTOCOL.$BaseUrlPath.'/'.$surl;
+			elseif($preurl=="http:/"||$preurl=='ftp:/' ||$preurl=='mms://' || $preurl=="rtsp:/" || $preurl=='thunde' || $preurl=='emule:'|| $preurl=='ed2k:/')
 			$okurl = $surl;
 			else
-			$okurl = 'http://'.$BaseUrlPath.'/'.$surl;
+			$okurl = SITE_PROTOCOL.$BaseUrlPath.'/'.$surl;
 		}
 		$preurl = strtolower(substr($okurl,0,6));
-		if($preurl=='ftp://' || $preurl=='mms://' || $preurl=='rtsp://' || $preurl=='thunde' || $preurl=='emule:'|| $preurl=='ed2k:/') {
+		if($preurl=='ftp://' || $preurl=='mms://' || $preurl=='rtsp:/' || $preurl=='thunde' || $preurl=='emule:'|| $preurl=='ed2k:/') {
 			return $okurl;
 		} else {
-			$okurl = preg_replace('/^(http:\/\/)/i','',$okurl);
+			$okurl = preg_replace('/^(http(s?):\/\/)/i','',$okurl);
 			$okurl = preg_replace('/\/{1,}/i','/',$okurl);
-			return 'http://'.$okurl;
+			return SITE_PROTOCOL.$okurl;
 		}
 	}
 
