@@ -100,8 +100,8 @@ class attachments {
 	}
 	
 	public function crop_upload() {
-		if (isset($GLOBALS["HTTP_RAW_POST_DATA"])) {
-			$pic = $GLOBALS["HTTP_RAW_POST_DATA"];
+            $pic = version_compare(PHP_VERSION, 5.6, '>=') ? file_get_contents('php://input') : $GLOBALS["HTTP_RAW_POST_DATA"];
+		if (!empty($pic)) {
 			if (isset($_GET['width']) && !empty($_GET['width'])) {
 				$width = intval($_GET['width']);
 			}
