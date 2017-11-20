@@ -90,7 +90,6 @@ include $this->admin_tpl('header','admin');?>
         <td align='center'><input name='listorders[<?php echo $r['id'];?>]' type='text' size='3' value='<?php echo $r['listorder'];?>' class='input-text-c'></td>
 		<td align='center' ><?php echo $r['id'];?></td>
 		<td>
-                    [<?php echo $this->categorys[$r[catid]][catname]?>]
 		<?php
 		if($status==99) {
 			if($r['islink']) {
