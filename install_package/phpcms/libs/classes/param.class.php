@@ -105,14 +105,15 @@ class param {
 	 * @return mixed 成功则返回cookie 值，否则返回 false
 	 */
 	public static function get_cookie($var, $default = '') {
-		$var = pc_base::load_config('system','cookie_pre').$var;
-		$value = isset($_COOKIE[$var]) ? sys_auth($_COOKIE[$var], 'DECODE', md5(PC_PATH.'cookie'.$var).pc_base::load_config('system','auth_key')) : $default;
-		if(in_array($var,array('_userid','userid','siteid','_groupid','_roleid'))) {
-			$value = intval($value);
-		} elseif(in_array($var,array('_username','username','_nickname','admin_username','sys_lang'))) { //  site_model auth
-			$value = safe_replace($value);
-		}
-		return $value;
+		$var_base = $var;
+                $var = pc_base::load_config('system','cookie_pre').$var;
+                $value = isset($_COOKIE[$var]) ? sys_auth($_COOKIE[$var], 'DECODE', md5(PC_PATH.'cookie'.$var).pc_base::load_config('system','auth_key')) : $default;
+                if(in_array($var_base,array('_userid','userid','siteid','_groupid','_roleid'))) {
+                        $value = intval($value);
+                } elseif(in_array($var_base,array('_username','username','_nickname','admin_username','sys_lang'))) { //  site_model auth
+                        $value = safe_replace($value);
+                }
+                return $value;
 	}
 
 	/**
