@@ -206,6 +206,7 @@ final class template_cache {
 					$datas['limit'] = '$offset.",".$pagesize';
 					$datas['action'] = $action;
 					$str .= '$'.$op.'_total = $'.$op.'_tag->count('.self::arr_to_html($datas).');';
+					$str .= 'if(ceil($'.$op.'_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("'.$op.'", "404");ob_end_flush();exit;}';
 					$str .= '$pages = pages($'.$op.'_total, $page, $pagesize, $urlrule);';
 				}
 				$str .= '$'.$return.' = $'.$op.'_tag->'.$action.'('.self::arr_to_html($datas).');';
