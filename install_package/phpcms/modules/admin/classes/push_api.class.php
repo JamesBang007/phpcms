@@ -138,7 +138,7 @@ class push_api {
 						$info['posid'] = $pid;
 						$info['module'] = $model == 'yp_content_model' ? 'yp' : 'content';
 						$info['modelid'] = $modelid;
-						$fields_arr = $fields_value = '';
+						$fields_arr = $fields_value = array();
 						foreach($fulltext_array AS $key=>$value){
 							$fields_arr[] = '{'.$key.'}';
 							$fields_value[] = $d[$key];
