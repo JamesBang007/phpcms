@@ -139,9 +139,10 @@ class cache_api {
 		$infos = $this->db->select(array('keyid'=>0));
 		foreach ($infos as $r) {
 			$linkageid = intval($r['linkageid']);
-			$r = $this->db->get_one(array('linkageid'=>$linkageid),'name,siteid,style');
+			$r = $this->db->get_one(array('linkageid'=>$linkageid),'name,siteid,style,setting');
 			$info['title'] = $r['name'];
 			$info['style'] = $r['style'];
+			$info['setting'] = string2array($r['setting']);
 			$info['siteid'] = $r['siteid'];
 			$info['data'] = $this->submenulist($linkageid);
 			setcache($linkageid, $info,'linkage');
