@@ -479,7 +479,9 @@ function L($language = 'no_language',$pars = array(), $modules = '') {
  * @return unknown_type
  */
 function template($module = 'content', $template = 'index', $style = '') {
-
+	if(strpos($template, '..') !== false){
+		showmessage('Template filename illegality.');
+	}
 	if(strpos($module, 'plugin/')!== false) {
 		$plugin = str_replace('plugin/', '', $module);
 		return p_template($plugin, $template,$style);
