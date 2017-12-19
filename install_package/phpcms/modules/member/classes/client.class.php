@@ -358,7 +358,8 @@ EOF;
 		$matches = parse_url($url);
 		$host = $matches['host'];
 		$path = $matches['path'] ? $matches['path'].($matches['query'] ? '?'.$matches['query'] : '') : '/';
-		$port = !empty($matches['port']) ? $matches['port'] : 80;
+		$protocol = strtolower($matches['scheme']);
+		$port = !empty($matches['port']) ? $matches['port'] : ($protocol == 'https' ? 443 : 80);
 		$siteurl = $this->_get_url();
 		if($post) {
 			$out = "POST $path HTTP/1.1\r\n";
@@ -383,7 +384,7 @@ EOF;
 			$out .= "Connection: Close\r\n";
 			$out .= "Cookie: $cookie\r\n\r\n";
 		}
-		$fp = @fsockopen(($ip ? $ip : $host), $port, $errno, $errstr, $timeout);
+		$fp = @fsockopen(($protocol == 'https' ? 'ssl://' : '').($ip ? $ip : $host), $port, $errno, $errstr, $timeout);
 		if(!$fp) return '';
 	
 		stream_set_blocking($fp, $block);
