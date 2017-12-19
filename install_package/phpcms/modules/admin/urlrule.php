@@ -22,7 +22,7 @@ class urlrule extends admin {
 		if(isset($_POST['dosubmit'])) {
 			$_POST['info']['urlrule'] = rtrim(trim($_POST['info']['urlrule']),'.php');
 			$_POST['info']['urlrule'] = $this->url_replace($_POST['info']['urlrule']);
-			if($this->url_ifok($_POST['info']['urlrule'])==false){
+			if($this->url_ifok($_POST['info']['urlrule'], $_POST['info']['ishtml'])==false){
 				showmessage('url规则里含有非法php字符');
 			}
 			$this->db->insert($_POST['info']);
@@ -52,7 +52,7 @@ class urlrule extends admin {
 			$urlruleid = intval($_POST['urlruleid']);
 			$_POST['info']['urlrule'] = rtrim(trim($_POST['info']['urlrule']),'.php');
 			$_POST['info']['urlrule'] = $this->url_replace($_POST['info']['urlrule']);
-			if($this->url_ifok($_POST['info']['urlrule'])==false){
+			if($this->url_ifok($_POST['info']['urlrule'], $_POST['info']['ishtml'])==false){
 				showmessage('url规则里含有非法php字符');
 			}			
 			$this->db->update($_POST['info'],array('urlruleid'=>$urlruleid));
@@ -104,10 +104,10 @@ class urlrule extends admin {
 	/*
 	*url规则 判断。
 	**/
-	public function url_ifok($url){
+	public function url_ifok($url, $ishtml){
 		$urldb = explode("|",$url);
 		foreach($urldb as $key=>$value){
-			if(strpos($value, "index.php") === 0){
+			if(!intval($ishtml) && strpos($value, "index.php") === 0){
 				$value = substr($value,'9');
 			}
 			if( stripos($value, "php") !== false){
