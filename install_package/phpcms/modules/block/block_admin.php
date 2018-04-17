@@ -15,8 +15,7 @@ class block_admin extends admin {
 	public function init() {
 		$page = isset($_GET['page']) && intval($_GET['page']) ? intval($_GET['page']) : 1;
 		if ($_SESSION['roleid'] != 1) {
-			$offset = ($page-1) * 20;
-			$r = $this->priv_db->select(array('roleid'=>$this->roleid, 'siteid'=>$this->siteid),'blockid', $offset.',20');
+			$r = $this->priv_db->select(array('roleid'=>$this->roleid, 'siteid'=>$this->siteid),'blockid');
 			$blockid_list = array();
 			foreach ($r as $key=>$v) {
 				$blockid_list[$key] = $v['blockid'];
