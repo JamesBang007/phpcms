@@ -7,7 +7,7 @@ include $this->admin_tpl('header');
 	$(function(){
 		$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'200',height:'50'}, function(){this.close();$(obj).focus();})}});
 		$("#sitename").formValidator({onshow:"<?php echo L('input').L('copyfrom_name');?>",onfocus:"<?php echo L('input').L('copyfrom_name');?>"}).inputValidator({min:1,onerror:"<?php echo L('input').L('copyfrom_name');?>"}).defaultPassed();
-		$("#siteurl").formValidator({onshow:"<?php echo L('input').L('copyfrom_url');?>",onfocus:"<?php echo L('input').L('copyfrom_url');?>",empty:false}).inputValidator({onerror:"<?php echo L('input').L('copyfrom_url');?>"}).regexValidator({regexp:"^http://",onerror:"<?php echo L('copyfrom_url_tips');?>"}).defaultPassed();
+		$("#siteurl").formValidator({onshow:"<?php echo L('input').L('copyfrom_url');?>",onfocus:"<?php echo L('input').L('copyfrom_url');?>",empty:false}).inputValidator({onerror:"<?php echo L('input').L('copyfrom_url');?>"}).regexValidator({regexp:"^http(s?)://",onerror:"<?php echo L('copyfrom_url_tips');?>"}).defaultPassed();
 	})
 //-->
 </script>
