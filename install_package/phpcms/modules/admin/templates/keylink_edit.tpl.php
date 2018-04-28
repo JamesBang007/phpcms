@@ -6,7 +6,7 @@ include $this->admin_tpl('header');
 	$(function(){
 		$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'200',height:'50'}, function(){this.close();$(obj).focus();})}});
 		$("#word").formValidator({onshow:"<?php echo L('input').L('keylink');?>",onfocus:"<?php echo L('input').L('keylink');?>"}).inputValidator({min:1,onerror:"<?php echo L('input').L('keylink');?>"}).regexValidator({regexp:"notempty",datatype:"enum",param:'i',onerror:"<?php echo L('en_tips_type');?>"}).ajaxValidator({type : "get",url : "",data :"m=admin&c=keylink&a=public_name&keylinkid=<?php echo $keylinkid?>",datatype : "html",async:'false',success : function(data){	if( data == "1" ){return true;}else{return false;}},buttons: $("#dosubmit"),onerror : "<?php echo L('keylink').L('exists');?>",onwait : "<?php echo L('connecting');?>"}).defaultPassed(); 
-		$("#url").formValidator({onshow:"<?php echo L('input_siteurl');?>",onfocus:"<?php echo L('input_siteurl');?>"}).inputValidator({min:1,onerror:"<?php echo L('input_siteurl');?>"}).regexValidator({regexp:"^http:",onerror:"<?php echo L('copyfrom_url_tips');?>"});
+		$("#url").formValidator({onshow:"<?php echo L('input_siteurl');?>",onfocus:"<?php echo L('input_siteurl');?>"}).inputValidator({min:1,onerror:"<?php echo L('input_siteurl');?>"}).regexValidator({regexp:"^http(s?):",onerror:"<?php echo L('copyfrom_url_tips');?>"});
 		
 	})
 </script>
